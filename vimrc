@@ -18,8 +18,8 @@ set ts=4
 set sw=4
 set sts=4
 
-"set background=dark
-"set t_Co=256∾
+set background=dark
+set t_Co=256∾
 "let g:solarized_termcolors=16∾
 "let g:solarized_underline=0∾
 "let g:solarized_visibility="low"∾
@@ -31,6 +31,6 @@ set sts=4
 "let g:solarized_diffmode="high"∾
 "let g:solarized_hitrail=0∾
 "let g:solarized_menu=1∾
+colorscheme solarized
 
-colorscheme wood
 syntax on
