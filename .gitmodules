@@ -14,3 +14,12 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim
+[submodule "bundle/comments"]
+	path = bundle/comments
+	url = https://github.com/vim-scripts/comments.vim
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim
