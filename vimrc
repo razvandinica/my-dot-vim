@@ -1,10 +1,14 @@
+set nocompatible
+"if has("autocmd")
+	"autocmd bufwritepost .vimrc source $MYVIMRC
+"endif
+
 " Activate Pathogen - It is essential that the following lines are called before enabling filetype detection.
-						call pathogen#infect()
-			call pathogen#helptags()
+call pathogen#infect()
+call pathogen#helptags()
 
 set encoding=utf-8
 scriptencoding utf-8
-set nocompatible
 
 " Set Key Shortcut For nerdtree
 nnoremap <F9> :NERDTreeToggle<CR>
@@ -51,3 +55,15 @@ set background=dark
 
 call togglebg#map("<F5>")
 nmap <leader>l :set list!<CR>
+
+set hidden
+nmap <silent> bn :bn<CR>
+nmap <silent> bp :bp<CR>
+nmap <silent> bk :bd<CR>
+
+map ,w <ctrl-w>l<CR>
+
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+nnoremap w <c-w>w
