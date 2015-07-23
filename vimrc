@@ -61,9 +61,37 @@ nmap <silent> bn :bn<CR>
 nmap <silent> bp :bp<CR>
 nmap <silent> bk :bd<CR>
 
-map ,w <ctrl-w>l<CR>
-
 let mapleader = ","
-nmap <leader>v :tabedit $MYVIMRC<CR>
+let g:mapleader = ","
 
-nnoremap w <c-w>w
+nmap <leader>ws <c-w>s
+nmap <leader>wv <c-w>v
+nmap <leader>wc <c-w>c
+nmap <leader>w <c-w>w
+
+set visualbell
+set noerrorbells
+set tags=tags
+set tabstop=4
+set smarttab
+set copyindent
+
+" Autoremove Trailing spaces
+autocmd BufWritePre *.php :%s/\s\+$//e
+
+" Edit My .vimrc File
+nmap <leader>vimrc :vsp $MYVIMRC<CR>
+
+" Edit My todo.txt File
+nmap <leader>todo :vsp todo.txt<CR>
+
+" Please Install "ag" First - brew install ag
+" This Will Speed Up Searching Like Hell
+" Taken From - http://blog.patspam.com/2014/super-fast-ctrlp
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+nmap <leader>tnew :tabnew
+nmap <leader>tn :tabnext
+nmap <leader>tp :tabprevious
+nmap <leader>tc :tabclose
