@@ -10,6 +10,9 @@ call pathogen#helptags()
 set encoding=utf-8
 scriptencoding utf-8
 
+syntax on
+filetype indent on
+
 " Set Key Shortcut For nerdtree
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize=50
@@ -33,7 +36,6 @@ set foldtext=""
 set fillchars="fold: "
 
 
-syntax on
 set list lcs=tab:⋮\ ,trail:‹
 "set lcs=eol:┐
 
@@ -95,3 +97,6 @@ nmap <silent> <leader>tnew :tabnew<CR>
 nmap <silent> <leader>tn :tabnext<CR>
 nmap <silent> <leader>tp :tabprevious<CR>
 nmap <silent> <leader>tc :tabclose<CR>
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
