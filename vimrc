@@ -1,7 +1,7 @@
 set nocompatible
-"if has("autocmd")
-	"autocmd bufwritepost .vimrc source $MYVIMRC
-"endif
+if has("autocmd")
+	autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
 " Activate Pathogen - It is essential that the following lines are called before enabling filetype detection.
 call pathogen#infect()
@@ -11,7 +11,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Set Key Shortcut For nerdtree
-nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize=50
 
 set wildmenu
@@ -34,7 +34,7 @@ set fillchars="fold: "
 
 
 syntax on
-set list lcs=tab:\|\ ,trail:‹
+set list lcs=tab:⋮\ ,trail:‹
 "set lcs=eol:┐
 
 colorscheme solarized
@@ -64,10 +64,10 @@ nmap <silent> bk :bd<CR>
 let mapleader = ","
 let g:mapleader = ","
 
-nmap <leader>ws <c-w>s
-nmap <leader>wv <c-w>v
-nmap <leader>wc <c-w>c
-nmap <leader>w <c-w>w
+"nmap <leader>ws <c-w>s
+"nmap <leader>wv <c-w>v
+"nmap <leader>wc <c-w>c
+"nmap <leader>w <c-w>w
 
 set visualbell
 set noerrorbells
@@ -91,7 +91,7 @@ nmap <leader>todo :vsp todo.txt<CR>
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-nmap <leader>tnew :tabnew
-nmap <leader>tn :tabnext
-nmap <leader>tp :tabprevious
-nmap <leader>tc :tabclose
+nmap <silent> <leader>tnew :tabnew<CR>
+nmap <silent> <leader>tn :tabnext<CR>
+nmap <silent> <leader>tp :tabprevious<CR>
+nmap <silent> <leader>tc :tabclose<CR>
