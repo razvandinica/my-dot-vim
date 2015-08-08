@@ -42,3 +42,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+[submodule "bundle/you-complete-me"]
+	path = bundle/you-complete-me
+	url = https://github.com/Valloric/YouCompleteMe

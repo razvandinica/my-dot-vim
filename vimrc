@@ -100,3 +100,5 @@ nmap <silent> <leader>tc :tabclose<CR>
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
