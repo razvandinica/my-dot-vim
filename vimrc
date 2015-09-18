@@ -11,7 +11,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 syntax on
-filetype indent on
+filetype plugin indent on
 
 " Set Key Shortcut For nerdtree
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
@@ -102,3 +102,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
+"" YouCompleteMe
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
