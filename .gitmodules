@@ -45,6 +45,10 @@
 [submodule "bundle/you-complete-me"]
 	path = bundle/you-complete-me
 	url = https://github.com/Valloric/YouCompleteMe
+	ignore=dirty
 [submodule "bundle/tern"]
 	path = bundle/tern
 	url = https://github.com/marijnh/tern_for_vim
+[submodule "bundle/bufkill"]
+	path = bundle/bufkill
+	url = https://github.com/vim-scripts/bufkill.vim
