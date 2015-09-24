@@ -61,10 +61,10 @@ call togglebg#map("<F5>")
 nmap <leader>l :set list!<CR>
 
 set hidden
-"nmap <silent>bn :bn<CR>
-"nmap <silent>bp :bp<CR>
-"nmap <silent>bk :bd<CR>
-"nmap <silent>bl :bl<CR>
+nmap <silent>bn :bn<CR>
+nmap <silent>bp :bp<CR>
+nmap <silent>bk :BD<CR>
+nmap <silent>bl :bl<CR>
 
 let mapleader = ","
 let g:mapleader = ","
