@@ -1,6 +1,8 @@
 set nocompatible
+
+" Source the vimrc file after saving it
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd bufwritepost vimrc source $MYVIMRC
 endif
 
 " Activate Pathogen - It is essential that the following lines are called before enabling filetype detection.
@@ -14,7 +16,7 @@ syntax on
 filetype plugin indent on
 
 " Set Key Shortcut For nerdtree
-nnoremap <silent> <F9> :NERDTreeToggle<CR>
+nnoremap <silent> <F9> :NERDTreeToggle <CR>
 let g:NERDTreeWinSize=50
 
 set wildmenu
@@ -59,9 +61,10 @@ call togglebg#map("<F5>")
 nmap <leader>l :set list!<CR>
 
 set hidden
-nmap <silent> bn :bn<CR>
-nmap <silent> bp :bp<CR>
-nmap <silent> bk :bd<CR>
+"nmap <silent>bn :bn<CR>
+"nmap <silent>bp :bp<CR>
+"nmap <silent>bk :bd<CR>
+"nmap <silent>bl :bl<CR>
 
 let mapleader = ","
 let g:mapleader = ","
@@ -104,5 +107,6 @@ autocmd FileType html,css EmmetInstall
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 "" YouCompleteMe
+"" These Will Allow You To Use <tab> For Snippets
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
