@@ -1,9 +1,10 @@
 set nocompatible
 
 " Source the vimrc file after saving it
-if has("autocmd")
-	autocmd bufwritepost vimrc source $MYVIMRC
-endif
+augroup reload_vimrc
+	autocmd!
+	autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+augroup END
 
 " Activate Pathogen - It is essential that the following lines are called before enabling filetype detection.
 call pathogen#infect()
@@ -28,8 +29,6 @@ set foldmethod=indent
 set ts=4
 set sw=4
 set sts=4
-
-"set t_Co=256
 
 set backspace=indent,eol,start
 
@@ -77,9 +76,9 @@ let g:mapleader = ","
 set visualbell
 set noerrorbells
 set tags=tags
-set tabstop=4
 set smarttab
 set copyindent
+
 
 " Autoremove Trailing spaces
 autocmd BufWritePre *.php :%s/\s\+$//e
@@ -105,8 +104,55 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
+" autocmd Filetype javascript set expandtab
+" autocmd bufwritepost *.js silent !standard-format % --format
+" set autoread
 
 "" YouCompleteMe
 "" These Will Allow You To Use <tab> For Snippets
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+"" XDebug
+let g:dbgPavimPort = 9009
+let g:dbgPavimBreakAtEntry = 0
+
+"" Syntastic
+"" brew install tidy-html5
+let g:syntastic_id_checkers = 1
+"" npm install -g standard
+"" let g:syntastic_javascript_checkers = ['standard']
+
+"" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"Χ ":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?"ㄓ ".fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'separator': { 'left': '〉', 'right': '〈' },
+      \ 'subseparator': { 'left': '»', 'right': '«' }
+      \ }
+
+nnoremap <esc> :nohlsearch <cr>
+
+"Sort PHP use statements
+""http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
