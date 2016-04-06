@@ -95,6 +95,9 @@ nmap <leader>todo :vsp todo.txt<CR>
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
+" Also we are using ag to search text
+let g:vim_action_ag_escape_chars = '#%.^$*+?()[{\\|'
+
 nmap <silent> <leader>tnew :tabnew<CR>
 nmap <silent> <leader>tn :tabnext<CR>
 nmap <silent> <leader>tp :tabprevious<CR>
@@ -151,8 +154,8 @@ let g:lightline = {
       \ 'subseparator': { 'left': '»', 'right': '«' }
       \ }
 
-nnoremap <silent> <ESC> :nohlsearch <CR>
+""" nnoremap <silent> <ESC> :nohlsearch <CR>
 
-"Sort PHP use statements
-""http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
-vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
+"" Sort PHP use statements
+"" http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+"" vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
