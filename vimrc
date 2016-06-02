@@ -127,6 +127,9 @@ let g:syntastic_id_checkers = 1
 "" npm install -g standard
 "" let g:syntastic_javascript_checkers = ['standard']
 
+let g:ctags_statusline=1
+
+
 "" Lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
