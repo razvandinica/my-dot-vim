@@ -57,3 +57,6 @@
 [submodule "bundle/ag-vim"]
 	path = bundle/ag-vim
 	url = https://github.com/rking/ag.vim
+[submodule "bundle/atom-dark"]
+	path = bundle/atom-dark
+	url = https://github.com/gosukiwi/vim-atom-dark
