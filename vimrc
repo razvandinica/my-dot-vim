@@ -157,8 +157,9 @@ let g:lightline = {
       \ 'subseparator': { 'left': '»', 'right': '«' }
       \ }
 
-nnoremap <silent> <ESC> :nohlsearch <CR>
+""" nnoremap <silent> <ESC> :nohlsearch <CR>
 
 "" Sort PHP use statements
 "" http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+"A
 "" vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
