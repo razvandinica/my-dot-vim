@@ -163,3 +163,6 @@ let g:lightline = {
 "" http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
 "A
 "" vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
+
+""" Make red everything over 80 chars length
+""" match ErrorMsg '\%>80v.\+'
