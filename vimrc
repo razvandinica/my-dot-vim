@@ -18,7 +18,7 @@ filetype plugin indent on
 
 " Set Key Shortcut For nerdtree
 nnoremap <silent> <F9> :NERDTreeToggle <CR>
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=40
 
 set wildmenu
 set number
@@ -37,7 +37,7 @@ set foldtext=""
 set fillchars="fold: "
 
 
-set list lcs=tab:⋮\ ,trail:‹
+"set list lcs=tab:⋮\ ,trail:‹
 "set lcs=eol:┐
 
 colorscheme solarized
@@ -56,7 +56,7 @@ let g:solarized_menu=1
 highlight Folded term=bold cterm=bold ctermfg=12 ctermbg=0 guifg=Cyan guibg=DarkGrey
 set background=dark
 
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 nmap <leader>l :set list!<CR>
 
 set hidden
