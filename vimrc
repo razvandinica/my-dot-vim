@@ -37,8 +37,7 @@ set foldtext=""
 set fillchars="fold: "
 
 
-"set list lcs=tab:⋮\ ,trail:‹
-"set lcs=eol:┐
+set list lcs=tab:⋮\ ,trail:‹,eol:┐
 
 colorscheme solarized
 set t_Co=256
@@ -107,8 +106,8 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd Filetype javascript set expandtab
 " autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
-" autocmd Filetype javascript set expandtab
 " autocmd bufwritepost *.js silent !standard-format % --format
 " set autoread
 
@@ -125,7 +124,7 @@ let g:dbgPavimBreakAtEntry = 0
 "" brew install tidy-html5
 let g:syntastic_id_checkers = 1
 "" npm install -g standard
-"" let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['standard']
 
 let g:ctags_statusline=1
 
