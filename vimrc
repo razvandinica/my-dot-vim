@@ -38,6 +38,7 @@ set fillchars="fold: "
 
 
 set list lcs=tab:⋮\ ,trail:‹,eol:┐
+nmap <leader>l :set list!<CR>
 
 colorscheme solarized
 set t_Co=256
@@ -56,7 +57,6 @@ highlight Folded term=bold cterm=bold ctermfg=12 ctermbg=0 guifg=Cyan guibg=Dark
 set background=dark
 
 "call togglebg#map("<F5>")
-nmap <leader>l :set list!<CR>
 
 set hidden
 nmap <silent>bn :bn<CR>
@@ -77,6 +77,7 @@ set noerrorbells
 set tags=tags
 set smarttab
 set copyindent
+set expandtab
 
 
 " Autoremove Trailing spaces
@@ -105,11 +106,11 @@ nmap <silent> <leader>tc :tabclose<CR>
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd Filetype javascript set expandtab
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd Filetype javascript set expandtab
 " autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
 " autocmd bufwritepost *.js silent !standard-format % --format
-" set autoread
+set autoread
 
 "" YouCompleteMe
 "" These Will Allow You To Use <tab> For Snippets
@@ -124,14 +125,14 @@ let g:dbgPavimBreakAtEntry = 0
 "" brew install tidy-html5
 let g:syntastic_id_checkers = 1
 "" npm install -g standard
-let g:syntastic_javascript_checkers = ['standard']
+""let g:syntastic_javascript_checkers = ['standard']
 
 let g:ctags_statusline=1
 
 
 "" Lightline
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
@@ -139,7 +140,7 @@ let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&readonly?"Χ ":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?"ㄓ ".fugitive#head():""}'
+      \   'fugitive': '%{exists("*fugitive#head")?"±  ".fugitive#head():""}'
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -152,9 +153,11 @@ let g:lightline = {
       \ 'component_type': {
       \   'syntastic': 'error',
       \ },
-      \ 'separator': { 'left': '〉', 'right': '〈' },
-      \ 'subseparator': { 'left': '»', 'right': '«' }
       \ }
+
+
+""" 'separator': { 'left': '〉', 'right': '〈' },
+""" 'subseparator': { 'left': '»', 'right': '«' }
 
 """ nnoremap <silent> <ESC> :nohlsearch <CR>
 
