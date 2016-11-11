@@ -2,8 +2,8 @@ set nocompatible
 
 " Source the vimrc file after saving it
 augroup reload_vimrc
-	autocmd!
-	autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+    autocmd!
+    autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
 
 " Activate Pathogen - It is essential that the following lines are called before enabling filetype detection.
@@ -29,13 +29,11 @@ set foldmethod=indent
 set ts=4
 set sw=4
 set sts=4
-
 set backspace=indent,eol,start
 
 " Set Custom Folded Style
 set foldtext=""
 set fillchars="fold: "
-
 
 set list lcs=tab:⋮\ ,trail:‹,eol:┐
 nmap <leader>l :set list!<CR>
@@ -80,8 +78,8 @@ set copyindent
 set expandtab
 
 
-" Autoremove Trailing spaces
-autocmd BufWritePre *.php :%s/\s\+$//e
+" Autoremove trailing spaces for php and js files
+autocmd BufWritePre *.[php|js] :%s/\s\+$//e
 
 " Edit My .vimrc File
 nmap <leader>vimrc :vsp $MYVIMRC<CR>
@@ -107,9 +105,11 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd Filetype javascript set expandtab
-" autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
-" autocmd bufwritepost *.js silent !standard-format % --format
+autocmd FileType javascript setlocal ts=2 sw=2 sts=2
+autocmd BufWritePost *.js silent !~/.npm-packages/bin/standard-format -w %
+
+autocmd BufWritePost * retab!
+autocmd bufwritepost * redraw!
 set autoread
 
 "" YouCompleteMe
@@ -125,7 +125,7 @@ let g:dbgPavimBreakAtEntry = 0
 "" brew install tidy-html5
 let g:syntastic_id_checkers = 1
 "" npm install -g standard
-""let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['standard']
 
 let g:ctags_statusline=1
 
@@ -168,3 +168,21 @@ let g:lightline = {
 
 """ Make red everything over 80 chars length
 """ match ErrorMsg '\%>80v.\+'
+
+" If php-cs-fixer is in $PATH, you don't need to define line below
+" " let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the
+" php-cs-fixer.phar
+" let g:php_cs_fixer_level = "symfony"              " which level ?
+" let g:php_cs_fixer_config = "default"             " configuration
+" "let g:php_cs_fixer_config_file = '.php_cs'       " configuration file
+" let g:php_cs_fixer_php_path = "php"               " Path to PHP
+" " If you want to define specific fixers:
+" "let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+" let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by
+" default (<leader>pcd)
+" let g:php_cs_fixer_dry_run = 0                    " Call command with
+" dry-run option
+" let g:php_cs_fixer_verbose = 0                    " Return the output of
+" command if 1, else an inline information.
+" nnoremap <silent><leader>cd :call PhpCsFixerFixDirectory()<CR>
+" nnoremap <silent><leader>cf :call PhpCsFixerFixFile()<CR>
