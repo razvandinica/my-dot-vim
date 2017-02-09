@@ -39,8 +39,9 @@ set list lcs=tab:⋮\ ,trail:‹,eol:┐
 nmap <leader>l :set list!<CR>
 set nolist
 
+colorscheme solarized
 "set t_Co=256
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=16
 let g:solarized_termtrans=0
 let g:solarized_underline=0
 let g:solarized_visibility="low"
