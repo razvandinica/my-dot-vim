@@ -37,10 +37,10 @@ set fillchars="fold: "
 
 set list lcs=tab:⋮\ ,trail:‹,eol:┐
 nmap <leader>l :set list!<CR>
+set nolist
 
-colorscheme solarized
-set t_Co=256
-"let g:solarized_termcolors=16
+"set t_Co=256
+let g:solarized_termcolors=16
 let g:solarized_termtrans=0
 let g:solarized_underline=0
 let g:solarized_visibility="low"
@@ -50,9 +50,9 @@ let g:solarized_italic=0
 let g:solarized_contrast="high"
 let g:solarized_diffmode="high"
 let g:solarized_hitrail=0
-let g:solarized_menu=1
 highlight Folded term=bold cterm=bold ctermfg=12 ctermbg=0 guifg=Cyan guibg=DarkGrey
 set background=dark
+colorscheme solarized
 
 "call togglebg#map("<F5>")
 
@@ -106,7 +106,10 @@ autocmd FileType html,css EmmetInstall
 
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript setlocal ts=2 sw=2 sts=2
-autocmd BufWritePost *.js silent !~/.npm-packages/bin/standard-format -w %
+autocmd FileType yaml setlocal ts=2 sw=2 sts=2
+
+"RE-ENEABLE THIS FOR js STANDARD
+"autocmd BufWritePost *.js silent !~/.npm-packages/bin/standard-format -w %
 
 autocmd BufWritePost * retab!
 autocmd bufwritepost * redraw!
@@ -118,8 +121,8 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
 "" XDebug
-let g:dbgPavimPort = 9009
-let g:dbgPavimBreakAtEntry = 0
+"let g:dbgPavimPort = 9009
+"let g:dbgPavimBreakAtEntry = 0
 
 "" Syntastic
 "" brew install tidy-html5
