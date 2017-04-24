@@ -86,7 +86,7 @@ nmap <leader>vimrc :vsp $MYVIMRC<CR>
 " Edit My todo.txt File
 nmap <leader>todo :vsp todo.txt<CR>
 
-" Please Install "ag" First - brew install ag
+" Please Install "ag" First - brew install ag | apt-get install silversearcher-ag under ubuntu
 " This Will Speed Up Searching Like Hell
 " Taken From - http://blog.patspam.com/2014/super-fast-ctrlp
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
