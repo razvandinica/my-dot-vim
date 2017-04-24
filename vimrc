@@ -39,23 +39,21 @@ set list lcs=tab:⋮\ ,trail:‹,eol:┐
 nmap <leader>l :set list!<CR>
 set nolist
 
-colorscheme solarized
-"set t_Co=256
-"let g:solarized_termcolors=16
-let g:solarized_termtrans=0
+set t_Co=256
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
 let g:solarized_underline=0
-let g:solarized_visibility="low"
-let g:solarized_degrade=0
 let g:solarized_bold=1
 let g:solarized_italic=0
 let g:solarized_contrast="high"
+let g:solarized_visibility="normal"
 let g:solarized_diffmode="high"
 let g:solarized_hitrail=0
 highlight Folded term=bold cterm=bold ctermfg=12 ctermbg=0 guifg=Cyan guibg=DarkGrey
 set background=dark
 colorscheme solarized
 
-"call togglebg#map("<F5>")
+call togglebg#map("<F5>")
 
 set hidden
 nmap <silent>bn :bn<CR>
@@ -106,6 +104,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType yaml setlocal ts=2 sw=2 sts=2
 autocmd FileType javascript setlocal ts=2 sw=2 sts=2
 autocmd FileType yaml setlocal ts=2 sw=2 sts=2
 
@@ -131,7 +130,7 @@ let g:syntastic_id_checkers = 1
 "" npm install -g standard
 let g:syntastic_javascript_checkers = ['standard']
 
-let g:ctags_statusline=1
+"let g:ctags_statusline=1
 
 
 "" Lightline
