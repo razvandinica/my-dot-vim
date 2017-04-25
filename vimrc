@@ -1,6 +1,6 @@
 set nocompatible
 
-" Source the vimrc file after saving it
+" Source the vimrc config file after saving it
 augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
@@ -53,7 +53,7 @@ highlight Folded term=bold cterm=bold ctermfg=12 ctermbg=0 guifg=Cyan guibg=Dark
 set background=dark
 colorscheme solarized
 
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 
 set hidden
 nmap <silent>bn :bn<CR>
@@ -189,3 +189,5 @@ let g:lightline = {
 " command if 1, else an inline information.
 " nnoremap <silent><leader>cd :call PhpCsFixerFixDirectory()<CR>
 " nnoremap <silent><leader>cf :call PhpCsFixerFixFile()<CR>
+"
+
