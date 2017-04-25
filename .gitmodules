@@ -5,21 +5,27 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+	ignore = dirty
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+	ignore = dirty
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic
+	ignore = dirty
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim
+	ignore = dirty
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular
+	ignore = dirty
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim
+	ignore = dirty
 [submodule "bundle/ctrlp-py-matcher"]
 	path = bundle/ctrlp-py-matcher
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
@@ -27,36 +33,48 @@
 [submodule "bundle/emmet"]
 	path = bundle/emmet
 	url = https://github.com/mattn/emmet-vim.git
+	ignore = dirty
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets
+	ignore = dirty
 [submodule "bundle/tlib-vim"]
 	path = bundle/tlib-vim
 	url = https://github.com/tomtom/tlib_vim.git
+	ignore = dirty
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+	ignore = dirty
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
+	ignore = dirty
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+	ignore = dirty
 [submodule "bundle/bufkill"]
 	path = bundle/bufkill
 	url = https://github.com/vim-scripts/bufkill.vim
+	ignore = dirty
 [submodule "bundle/lightline"]
 	path = bundle/lightline
 	url = https://github.com/itchyny/lightline.vim
+	ignore = dirty
 [submodule "bundle/ag-vim"]
 	path = bundle/ag-vim
 	url = https://github.com/rking/ag.vim
+	ignore = dirty
 [submodule "bundle/atom-dark"]
 	path = bundle/atom-dark
 	url = https://github.com/gosukiwi/vim-atom-dark
+	ignore = dirty
 [submodule "bundle/php-cs-fixer"]
 	path = bundle/php-cs-fixer
 	url = git@github.com:stephpy/vim-php-cs-fixer.git
+	ignore = dirty
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = https://github.com/joonty/vdebug.git
+	ignore = dirty
