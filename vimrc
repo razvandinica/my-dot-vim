@@ -17,7 +17,7 @@ syntax on
 filetype plugin indent on
 
 " Set Key Shortcut For nerdtree
-nnoremap <silent> <F9> :NERDTreeToggle <CR>
+nnoremap <silent><F9> :NERDTreeToggle <CR>
 let g:NERDTreeWinSize=40
 
 set wildmenu
@@ -78,7 +78,7 @@ set expandtab
 
 
 " Autoremove trailing spaces for php and js files
-autocmd BufWritePre *.[php|js] :%s/\s\+$//e
+autocmd BufWritePre *.[php|js|json|ts] :%s/\s\+$//e
 
 " Edit My .vimrc File
 nmap <leader>vimrc :vsp $MYVIMRC<CR>
@@ -106,6 +106,7 @@ autocmd FileType html,css EmmetInstall
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType yaml setlocal ts=2 sw=2 sts=2
 autocmd FileType javascript setlocal ts=2 sw=2 sts=2
+autocmd FileType typescript setlocal ts=2 sw=2 sts=2
 autocmd FileType yaml setlocal ts=2 sw=2 sts=2
 
 "RE-ENEABLE THIS FOR js STANDARD
@@ -191,3 +192,9 @@ let g:lightline = {
 " nnoremap <silent><leader>cf :call PhpCsFixerFixFile()<CR>
 "
 
+" Vdebug settings
+set rtp+=~/.vim/bundle/vundle
+
+
+let g:python_host_path = "/usr/local/bin/python2"
+set noeol
