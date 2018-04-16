@@ -89,16 +89,21 @@ nmap <leader>todo :vsp todo.txt<CR>
 " Please Install "ag" First - brew install ag | apt-get install silversearcher-ag under ubuntu
 " This Will Speed Up Searching Like Hell
 " Taken From - http://blog.patspam.com/2014/super-fast-ctrlp
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_max_height = 20
 
 " Also we are using ag to search text
 let g:vim_action_ag_escape_chars = '#%.^$*+?()[{\\|'
 
-nmap <silent> <leader>tnew :tabnew<CR>
-nmap <silent> <leader>tn :tabnext<CR>
-nmap <silent> <leader>tp :tabprevious<CR>
-nmap <silent> <leader>tc :tabclose<CR>
+"nmap <silent> <leader>tnew :tabnew<CR>
+"nmap <silent> <leader>tn :tabnext<CR>
+"nmap <silent> <leader>tp :tabprevious<CR>
+"nmap <silent> <leader>tc :tabclose<CR>
+nmap <silent> tnew :tabnew<CR>
+nmap <silent> tn :tabnext<CR>
+nmap <silent> tp :tabprevious<CR>
+nmap <silent> tc :tabclose<CR>
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -170,8 +175,8 @@ let g:lightline = {
 "A
 "" vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
 
-""" Make red everything over 80 chars length
-""" match ErrorMsg '\%>80v.\+'
+"" Make red everything over 120 chars length
+match ErrorMsg '\%>120v.\+'
 
 " If php-cs-fixer is in $PATH, you don't need to define line below
 " " let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the
@@ -198,3 +203,6 @@ set rtp+=~/.vim/bundle/vundle
 
 let g:python_host_path = "/usr/local/bin/python2"
 set noeol
+
+"" autostart Nerdtree
+""autocmd VimEnter * NERDTree
