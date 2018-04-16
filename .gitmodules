@@ -74,3 +74,6 @@
 	path = bundle/vdebug
 	url = https://github.com/joonty/vdebug.git
 	ignore = dirty
+[submodule "bundle/php-codesniffer"]
+	path = bundle/php-codesniffer
+	url = https://github.com/squizlabs/php_codesniffer
