@@ -11,13 +11,22 @@ augroup END
 
 
 " Edit .vimrc in a split for quickly edit, then back to coding
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap vc :vsplit $MYVIMRC<cr>
+nnoremap <leader>vc :vsp $MYVIMRC<cr>
 """
 
 
 " Manually source my .vimrc config file
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>svc :source $MYVIMRC<cr>
+"""
+
+
+" Edit my todo.txt file
+nmap <leader>todo :vsp todo.txt<CR>
+"""
+
+
+" Edit my global gitignore file
+nmap <leader>ggi :vsp $HOME/.gitignore<CR>
 """
 
 
@@ -28,9 +37,11 @@ call pathogen#infect()
 call pathogen#helptags()
 """
 
-" Set key shortcut for NERDTree
+
+" NERDTree settings
 nnoremap <silent><F9> :NERDTreeToggle <CR>
 let g:NERDTreeWinSize=40
+" autocmd VimEnter * NERDTree
 """
 
 scriptencoding utf-8
@@ -94,16 +105,12 @@ set copyindent
 set expandtab
 
 
-" Autoremove trailing spaces for php and js files
+" Autoremove trailing spaces for some filetypes
 autocmd BufWritePre *.[php|js|json|ts] :%s/\s\+$//e
+"""
 
-" Edit My .vimrc File
-nmap <leader>vimrc :vsp $MYVIMRC<CR>
-
-" Edit My todo.txt File
-nmap <leader>todo :vsp todo.txt<CR>
-
-" Please Install "ag" First - brew install ag | apt-get install silversearcher-ag under ubuntu
+" CtrlP settings
+" Please Install "ag" first: brew install ag | apt-get install silversearcher-ag under ubuntu
 " This Will Speed Up Searching Like Hell
 " Taken From - http://blog.patspam.com/2014/super-fast-ctrlp
 let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
@@ -147,11 +154,18 @@ let g:ycm_key_list_previous_completion=[]
 "let g:dbgPavimPort = 9009
 "let g:dbgPavimBreakAtEntry = 0
 
-"" Syntastic
-"" brew install tidy-html5
-let g:syntastic_id_checkers = 1
+
+" Syntastic configurations
+" for .html files please do: brew install tidy-html5
+"let g:syntastic_id_checkers = 1
 "" npm install -g standard
-let g:syntastic_javascript_checkers = ['standard']
+"let g:syntastic_javascript_checkers = ['standard']
+
+let g:syntastic_php_checkers = ['phpcs', 'phpmd']
+let g:syntastic_php_phpcs_exec = ['./vendor/bin/phpcs']
+let g:syntastic_php_phpmd_exec = ['./vendor/bin/phpmd']
+
+
 
 "let g:ctags_statusline=1
 
@@ -196,11 +210,7 @@ let g:lightline = {
 match ErrorMsg '\%>120v.\+'
 
 " Vdebug settings
-set rtp+=~/.vim/bundle/vundle
-
+"set rtp+=~/.vim/bundle/vundle
 
 let g:python_host_path = "/usr/local/bin/python2"
 set noeol
-
-"" autostart Nerdtree
-""autocmd VimEnter * NERDTree
