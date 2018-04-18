@@ -1,24 +1,41 @@
 set nocompatible
+set encoding=UTF-8
 
-" Source the vimrc config file after saving it
-augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+
+" Auto-source vim config file after saving
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc so $MYVIMRC
 augroup END
+"""
 
-" Activate Pathogen - It is essential that the following lines are called before enabling filetype detection.
+
+" Edit .vimrc in a split for quickly edit, then back to coding
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap vc :vsplit $MYVIMRC<cr>
+"""
+
+
+" Manually source my .vimrc config file
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+"""
+
+
+" Activate Pathogen.
+" It is essential that the following lines
+" to be called before enabling filetype detection.
 call pathogen#infect()
 call pathogen#helptags()
+"""
 
-set encoding=utf-8
-scriptencoding utf-8
-
-syntax on
-filetype plugin indent on
-
-" Set Key Shortcut For nerdtree
+" Set key shortcut for NERDTree
 nnoremap <silent><F9> :NERDTreeToggle <CR>
 let g:NERDTreeWinSize=40
+"""
+
+scriptencoding utf-8
+syntax on
+filetype plugin indent on
 
 set wildmenu
 set number
@@ -29,7 +46,7 @@ set foldmethod=indent
 set ts=4
 set sw=4
 set sts=4
-set backspace=indent,eol,start
+set backspace=start,indent,eol
 
 " Set Custom Folded Style
 set foldtext=""
