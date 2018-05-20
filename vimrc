@@ -1,6 +1,35 @@
+echo '(>^.^<)'
 set nocompatible
 set encoding=UTF-8
+let mapleader = "\\"
 
+packadd minpac
+call minpac#init()
+
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('scrooloose/nerdcommenter')
+call minpac#add('scrooloose/syntastic')
+
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('sjl/gundo.vim')
+call minpac#add('godlygeek/tabular')
+call minpac#add('kien/ctrlp.vim')
+call minpac#add('FelikZ/ctrlp-py-matcher')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('honza/vim-snippets')
+call minpac#add('tomtom/tlib_vim')          
+call minpac#add('MarcWeber/vim-addon-mw-utils')
+call minpac#add('garbas/vim-snipmate')
+call minpac#add('vim-scripts/bufkill.vim')
+call minpac#add('itchyny/lightline.vim')
+call minpac#add('rking/ag.vim')
+call minpac#add('gosukiwi/vim-atom-dark')
+call minpac#add('joonty/vdebug')
+call minpac#add('squizlabs/php_codesniffer')
+
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
 
 " Auto-source vim config file after saving
 augroup myvimrc
@@ -11,13 +40,13 @@ augroup END
 
 
 " Edit .vimrc in a split for quickly edit, then back to coding
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap vc :vsplit $MYVIMRC<cr>
+nnoremap <leader>co :vsplit $MYVIMRC<cr>
+nnoremap <leader>cv :vsplit $MYVIMRC<cr>
 """
 
 
 " Manually source my .vimrc config file
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>so :source $MYVIMRC<cr>
 """
 
 
@@ -32,6 +61,23 @@ call pathogen#helptags()
 nnoremap <silent><F9> :NERDTreeToggle <CR>
 let g:NERDTreeWinSize=40
 """
+
+
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+"""
+
+
 
 scriptencoding utf-8
 syntax on
@@ -78,8 +124,6 @@ nmap <silent>bp :bp<CR>
 nmap <silent>bk :BD<CR>
 nmap <silent>bl :bl<CR>
 
-let mapleader = ","
-let g:mapleader = ","
 
 "nmap <leader>ws <c-w>s
 "nmap <leader>wv <c-w>v
@@ -106,7 +150,10 @@ nmap <leader>todo :vsp todo.txt<CR>
 " Please Install "ag" First - brew install ag | apt-get install silversearcher-ag under ubuntu
 " This Will Speed Up Searching Like Hell
 " Taken From - http://blog.patspam.com/2014/super-fast-ctrlp
-let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+" let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+"
+let g:ctrlp_use_caching = 0
+let g:ctrlp_user_command = 'ag %s -i --nogroup --skip-vcs-ignores -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_max_height = 20
 
@@ -204,3 +251,28 @@ set noeol
 
 "" autostart Nerdtree
 ""autocmd VimEnter * NERDTree
+
+" Airline settings
+let g:airline#extensions#tabline#enabled=2
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#tabline#left_alt_sep=' | '
+let g:airline#extensions#tabline#right_sep='☰  '
+let g:airline#extensions#tabline#right_alt_sep='>'
+
+let g:airline_left_sep=' '
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=' '
+let g:airline_right_alt_sep='|'
+
+  " let g:airline_left_sep = ' '
+  " let g:airline_left_alt_sep = ' '
+  " let g:airline_right_sep = ' '
+  " let g:airline_right_alt_sep = ' '
+  " let g:airline_symbols.branch = ' '
+  " let g:airline_symbols.readonly = ' '
+  " let g:airline_symbols.linenr = '☰ '
+  " let g:airline_symbols.maxlinenr = ' '
+
+let g:airline_theme='solarized'
+"""
