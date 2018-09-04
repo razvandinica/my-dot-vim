@@ -1,10 +1,21 @@
-echo '(>^.^<)'
 set nocompatible
 set encoding=UTF-8
 let mapleader = "\\"
 
-packadd minpac
+set packpath^=~/.vim
+silent! packadd minpac
+if !exists('*minpac#init')
+    echo 'Minpac does not exist!'
+else
+
+" Define user commands for updating/cleaning the plugins.
+" Each of them loads minpac, reloads .vimrc to register the
+" information of plugins, then performs the task.
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+
 call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('scrooloose/nerdcommenter')
@@ -25,11 +36,13 @@ call minpac#add('vim-scripts/bufkill.vim')
 call minpac#add('itchyny/lightline.vim')
 call minpac#add('rking/ag.vim')
 call minpac#add('gosukiwi/vim-atom-dark')
-call minpac#add('joonty/vdebug')
+" call minpac#add('joonty/vdebug')
 call minpac#add('squizlabs/php_codesniffer')
 
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+
+au VimLeave * if filereadable("~/.vim/.netrwhist") | call delete("$HOME/.vim/.netrwhist") | endif 
 
 " Auto-source vim config file after saving
 augroup myvimrc
@@ -53,8 +66,8 @@ nnoremap <leader>so :source $MYVIMRC<cr>
 " Activate Pathogen.
 " It is essential that the following lines
 " to be called before enabling filetype detection.
-call pathogen#infect()
-call pathogen#helptags()
+" call pathogen#infect()
+" call pathogen#helptags()
 """
 
 " Set key shortcut for NERDTree
@@ -176,7 +189,7 @@ autocmd FileType html,css EmmetInstall
 autocmd FileType yaml setlocal ts=2 sw=2 sts=2
 autocmd FileType javascript setlocal ts=2 sw=2 sts=2
 autocmd FileType typescript setlocal ts=2 sw=2 sts=2
-autocmd FileType yaml setlocal ts=2 sw=2 sts=2
+autocmd FileType json setlocal ts=2 sw=2 sts=2
 
 "RE-ENEABLE THIS FOR js STANDARD
 "autocmd BufWritePost *.js silent !~/.npm-packages/bin/standard-format -w %
@@ -243,7 +256,7 @@ let g:lightline = {
 match ErrorMsg '\%>120v.\+'
 
 " Vdebug settings
-set rtp+=~/.vim/bundle/vundle
+" set rtp+=~/.vim/bundle/vundle
 
 
 let g:python_host_path = "/usr/local/bin/python2"
@@ -276,3 +289,5 @@ let g:airline_right_alt_sep='|'
 
 let g:airline_theme='solarized'
 """
+
+endif
