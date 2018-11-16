@@ -28,19 +28,19 @@ call minpac#add('godlygeek/tabular')
 call minpac#add('kien/ctrlp.vim')
 call minpac#add('FelikZ/ctrlp-py-matcher')
 call minpac#add('mattn/emmet-vim')
-call minpac#add('honza/vim-snippets')
 call minpac#add('tomtom/tlib_vim')          
 call minpac#add('MarcWeber/vim-addon-mw-utils')
 call minpac#add('garbas/vim-snipmate')
+call minpac#add('honza/vim-snippets')
 call minpac#add('vim-scripts/bufkill.vim')
 call minpac#add('itchyny/lightline.vim')
 call minpac#add('rking/ag.vim')
 call minpac#add('gosukiwi/vim-atom-dark')
-" call minpac#add('joonty/vdebug')
 call minpac#add('squizlabs/php_codesniffer')
 
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('vim-vdebug/vdebug')
 
 au VimLeave * if filereadable("~/.vim/.netrwhist") | call delete("$HOME/.vim/.netrwhist") | endif 
 
@@ -128,13 +128,17 @@ let g:solarized_hitrail=0
 highlight Folded term=bold cterm=bold ctermfg=12 ctermbg=0 guifg=Cyan guibg=DarkGrey
 set background=dark
 colorscheme solarized
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 "call togglebg#map("<F5>")
 
+" Allow hidden buffers
 set hidden
 nmap <silent>bn :bn<CR>
 nmap <silent>bp :bp<CR>
 nmap <silent>bk :BD<CR>
+nmap <silent>bw :bw<CR>
 nmap <silent>bl :bl<CR>
 
 
@@ -173,10 +177,6 @@ let g:ctrlp_max_height = 20
 " Also we are using ag to search text
 let g:vim_action_ag_escape_chars = '#%.^$*+?()[{\\|'
 
-"nmap <silent> <leader>tnew :tabnew<CR>
-"nmap <silent> <leader>tn :tabnext<CR>
-"nmap <silent> <leader>tp :tabprevious<CR>
-"nmap <silent> <leader>tc :tabclose<CR>
 nmap <silent> tnew :tabnew<CR>
 nmap <silent> tn :tabnext<CR>
 nmap <silent> tp :tabprevious<CR>
@@ -249,17 +249,35 @@ let g:lightline = {
 
 "" Sort PHP use statements
 "" http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
-"A
-"" vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
+vmap <Leader>su ! awk '{ print length(), $0 \| \"sort -n \| cut -d\\  -f2-\" }'<cr>
 
 "" Make red everything over 120 chars length
 match ErrorMsg '\%>120v.\+'
 
 " Vdebug settings
-" set rtp+=~/.vim/bundle/vundle
+let g:vdebug_options = {
+\   'server': '',
+\   'port': '9111',
+\   'path_maps': {
+\       '/usr/share/nginx/html/interface/app':'/Users/razvandinica/Sites/pionix/projects/interface/app',
+\   },
+\   'break_on_open': 0
+\ }
+let g:vdebug_keymap = {
+\   "run" : "<F5>",
+\   "close" : "<F6>",
+\   "run_to_cursor" : "<F2>",
+\   "eval_under_cursor" : "<F3>",
+\   "step_into" : "<F7>",
+\   "step_out" : "<F8>",
+\   "step_over" : "<F10>",
+\   "detach" : "<leader><F6>",
+\   "set_breakpoint" : "<F4>",
+\   "get_context" : "<leader>gc"
+\}
 
 
-let g:python_host_path = "/usr/local/bin/python2"
+" let g:python_host_path = "/usr/local/bin/python2"
 set noeol
 
 "" autostart Nerdtree
